@@ -14,7 +14,7 @@ asking the character to QueueAnimation.
 	- Animation chaining
 	- Per-animation movement types
 	- Example scene
+	
+## Guides
 
-## Quick start guide
-
-1. 
+[[Quick Start Guide]]
