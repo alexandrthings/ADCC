@@ -17,4 +17,4 @@ asking the character to QueueAnimation.
 	
 ## Guides
 
-[[Quick Start Guide]]
+[Quick Start Guide] (Quick Start Guide.md)
