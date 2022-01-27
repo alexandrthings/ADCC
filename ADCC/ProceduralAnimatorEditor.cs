@@ -48,9 +48,10 @@ public class ProceduralAnimatorEditor : Editor
         //charac.actions.Clear();
         //charac.chainActions.Clear();
 
-        for (int i = 0; i < charac.animator.layers.Length; i++)
+        for (int i = 0; i < AnimCont.layers.Length; i++)
         {
-            FindFunction(charac, AnimCont, charac.animator.layers[i]);
+            Debug.Log(i);
+            FindFunction(charac, AnimCont, i);
         }
         
     }
@@ -58,6 +59,9 @@ public class ProceduralAnimatorEditor : Editor
     // FIRST TRANSITION NEEDS TO BE EMPTY
     public void FindFunction(Character _charac, AnimatorController cont, int layer)
     {
+        if (cont.layers[layer].stateMachine.anyStateTransitions.Length == 0)
+            return;
+
         AnimatorStateTransition cancelTransition = cont.layers[layer].stateMachine.anyStateTransitions[0];
 
         AnimatorCondition cancel1 = new AnimatorCondition();
@@ -104,7 +108,7 @@ public class ProceduralAnimatorEditor : Editor
             newCond3.threshold = layer;
 
             transition.conditions = new AnimatorCondition[] {newCond, newCond2, newCond3};
-            transition.canTransitionToSelf = false;
+            transition.canTransitionToSelf = true;
 
             //Debug.Log(transition.destinationState.name);
 
